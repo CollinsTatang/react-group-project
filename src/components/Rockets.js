@@ -6,7 +6,7 @@ function Rockets() {
   const { reservations } = reservationReducer;
   const { rockets } = reservations;
   const [rocketsDisplay, setRocketsDisplay] = useState(null);
-
+  console.log(rockets);
   useEffect(() => {
     if (rockets !== rocketsDisplay) {
       setRocketsDisplay(rockets);
@@ -16,16 +16,7 @@ function Rockets() {
   if (rocketsDisplay) {
     return (
       <div className="rocketsContainer">
-        {rocketsDisplay.map((element) => (
-          <div key={element.id}>
-            <img src={element.flickr_images[0]} alt="rocket" />
-            <div>
-              <h1>{element.rocket_name}</h1>
-              <p>{element.description}</p>
-              <button type="button">Reserve</button>
-            </div>
-          </div>
-        ))}
+        <p>hello</p>
       </div>
     );
   }

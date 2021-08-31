@@ -2,11 +2,13 @@ import api from '../../api/api';
 
 const ADD_RESERVATION = 'ADD_RESERVATION';
 const REMOVE_RESERVATION = 'REMOVE_RESERVATION';
+const rocketsData = api.getMissions();
+const missionsData = api.getRockets();
 
 const initialState = {
   reservations: {
-    missions: api.getMissions(),
-    rockets: api.getRockets(),
+    missions: missionsData,
+    rockets: rocketsData,
   },
 };
 
@@ -24,7 +26,6 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_RESERVATION: {
       console.log('working fine');
-      console.log(action);
       return state;
     }
     case REMOVE_RESERVATION: {
