@@ -11,7 +11,7 @@ const getRockets = async () => await axios.get(`${rocketsUrl}`).then((result) =>
     data.forEach((rocketData) => {
       const rocket = {
         id: rocketData.rocket_id,
-        rocket_name: rocketData.rocket_name,
+        name: rocketData.rocket_name,
         description: rocketData.description,
         flickr_images: rocketData.flickr_images,
         kind: 'rocket',

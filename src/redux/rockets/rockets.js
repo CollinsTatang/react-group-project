@@ -7,7 +7,6 @@ const initialState = { rockets: [] };
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_RESERVATION_ROCKET: {
-      console.log('working fine');
       return state;
     }
     case REMOVE_RESERVATION_ROCKET: {

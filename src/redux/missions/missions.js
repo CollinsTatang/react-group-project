@@ -7,7 +7,6 @@ const initialState = { missions: [] };
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_RESERVATION_MISSION: {
-      console.log('working fine');
       return state;
     }
     case REMOVE_RESERVATION_MISSION: {
