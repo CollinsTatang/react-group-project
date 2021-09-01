@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { addReservationMission, removeReservationMission } from '../redux/api/api';
 
 function Missions() {
   const { missionsReducer } = useSelector((state) => state);
   const { missions } = missionsReducer;
   const [missionsDisplay, setMissionsDisplay] = useState(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (missions !== missionsDisplay) {
@@ -29,14 +31,14 @@ function Missions() {
   }
 
   function checkButton(status) {
-    if (status === false) {
+    if (status.reserved === false) {
       return (
-        <button type="button">Join Mission</button>
+        <button type="button" onClick={() => dispatch(addReservationMission(status))}>Join Mission</button>
       );
     }
-    if (status === true) {
+    if (status.reserved === true) {
       return (
-        <button type="button">Leave Mission</button>
+        <button type="button" onClick={() => dispatch(removeReservationMission(status))}>Leave Mission</button>
       );
     }
     return (
@@ -61,7 +63,7 @@ function Missions() {
                 <td>{element.name}</td>
                 <td>{element.description}</td>
                 <td>{checkStatus(element.reserved)}</td>
-                <td>{checkButton(element.reserved)}</td>
+                <td>{checkButton(element)}</td>
               </tr>
             ))}
           </tbody>

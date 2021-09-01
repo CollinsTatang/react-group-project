@@ -7,10 +7,24 @@ const initialState = { rockets: [] };
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_RESERVATION_ROCKET: {
-      return state;
+      const { rockets } = state;
+      let newState;
+      if (rockets) {
+        newState = rockets.map((i) => (i.id === action.payload.id ? { ...i, reserved: true } : i));
+      }
+      return {
+        rockets: newState,
+      };
     }
     case REMOVE_RESERVATION_ROCKET: {
-      return 'working2';
+      const { rockets } = state;
+      let newState;
+      if (rockets) {
+        newState = rockets.map((i) => (i.id === action.payload.id ? { ...i, reserved: false } : i));
+      }
+      return {
+        rockets: newState,
+      };
     }
     case RECIVE_RESERVATION_ROCKET: {
       const rockets = action.payload;

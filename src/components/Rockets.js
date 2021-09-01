@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { addReservationRocket, removeReservationRocket } from '../redux/api/api';
 
 function Rockets() {
   const { rocketsReducer } = useSelector((state) => state);
   const { rockets } = rocketsReducer;
   const [rocketsDisplay, setRocketsDisplay] = useState(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (rockets !== rocketsDisplay) {
@@ -13,14 +15,14 @@ function Rockets() {
   });
 
   function checkButton(status) {
-    if (status === false) {
+    if (status.reserved === false) {
       return (
-        <button type="button">Reserve Rocket</button>
+        <button type="button" onClick={() => dispatch(addReservationRocket(status))}>Reserve Rocket</button>
       );
     }
-    if (status === true) {
+    if (status.reserved === true) {
       return (
-        <button type="button">Cancel Reservation</button>
+        <button type="button" onClick={() => dispatch(removeReservationRocket(status))}>Cancel Reservation</button>
       );
     }
     return (
@@ -37,7 +39,7 @@ function Rockets() {
             <div>
               <h1>{element.rocket_name}</h1>
               <p>{element.description}</p>
-              {checkButton(element.reserved)}
+              {checkButton(element)}
             </div>
           </div>
         ))}
