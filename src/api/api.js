@@ -1,9 +1,10 @@
+/* eslint-disable */
 import axios from 'axios';
 
 const rocketsUrl = 'https://api.spacexdata.com/v3/rockets';
 const missionsUrl = 'https://api.spacexdata.com/v3/missions';
 
-const getRockets = async () => axios.get(`${rocketsUrl}`).then((result) => {
+const getRockets = async () => await axios.get(`${rocketsUrl}`).then((result) => {
   const rockets = [];
   if (result.status === 200) {
     const { data } = result;
@@ -16,7 +17,7 @@ const getRockets = async () => axios.get(`${rocketsUrl}`).then((result) => {
         kind: 'rocket',
         reserved: false,
       };
-      rockets.push(rocket);
+      return rockets.push(rocket);
     });
   }
   return rockets;

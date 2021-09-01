@@ -5,6 +5,11 @@ import Rockets from './components/Rockets';
 import Missions from './components/Missions';
 import Myprofile from './components/Myprofile';
 import Header from './components/Header';
+import store from './redux/cofigureStore';
+import { getRockets, getMissions } from './redux/api/api';
+
+store.dispatch(getRockets());
+store.dispatch(getMissions());
 
 function App() {
   return (
