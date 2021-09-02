@@ -1,47 +1,15 @@
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { bookRocket, cancelBooking, fetchRockets } from '../redux/rockets/rockets';
+import { addReservationRocket, removeReservationRocket } from '../redux/api/api';
 
-const Rockets = () => {
+function Rockets() {
+  const { rocketsReducer } = useSelector((state) => state);
+  const { rockets } = rocketsReducer;
+  const [rocketsDisplay, setRocketsDisplay] = useState(null);
   const dispatch = useDispatch();
-  const rockets = useSelector((state) => state.rockets);
 
   useEffect(() => {
-    if (!rockets.length) {
-      dispatch(fetchRockets);
+    if (rockets !== rocketsDisplay) {
+      setRocketsDisplay(rockets);
     }
-  }, []);
-
-  const handleBooking = (id) => dispatch(bookRocket(id));
-  const handleCancellation = (id) => dispatch(cancelBooking(id));
-
-  return (
-    rockets.map(({
-      id, name, description, images, reserved,
-    }) => (
-      <div key={id} className="">
-        <div>
-          <img src={images[0]} alt="roc-img" />
-        </div>
-        <div>
-          <h3>{name}</h3>
-          <p>
-            {description}
-          </p>
-          {reserved && (
-            <button type="button" onClick={() => handleCancellation(id)}>
-              Cancel reservation
-            </button>
-          )}
-          {!reserved && (
-            <button type="button" onClick={() => handleBooking(id)}>
-              Reserve rocket
-            </button>
-          )}
-        </div>
-      </div>
-    ))
-  );
-};
-
-export default Rockets;
+  });
