@@ -13,6 +13,7 @@ function Rockets() {
       setRocketsDisplay(rockets);
     }
   });
+
   function checkButton(status) {
     if (status.reserved === false) {
       return (
@@ -28,6 +29,7 @@ function Rockets() {
       <h3>Member?</h3>
     );
   }
+
   if (rocketsDisplay) {
     return (
       <div className="rocketsContainer">
