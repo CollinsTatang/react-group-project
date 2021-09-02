@@ -13,3 +13,18 @@ function Rockets() {
       setRocketsDisplay(rockets);
     }
   });
+  function checkButton(status) {
+    if (status.reserved === false) {
+      return (
+        <button type="button" onClick={() => dispatch(addReservationRocket(status))}>Reserve Rocket</button>
+      );
+    }
+    if (status.reserved === true) {
+      return (
+        <button type="button" onClick={() => dispatch(removeReservationRocket(status))}>Cancel Reservation</button>
+      );
+    }
+    return (
+      <h3>Member?</h3>
+    );
+  }
