@@ -28,3 +28,23 @@ function Rockets() {
       <h3>Member?</h3>
     );
   }
+  if (rocketsDisplay) {
+    return (
+      <div className="rocketsContainer">
+        {rocketsDisplay.map((element) => (
+          <div key={element.id}>
+            <img src={element.flickr_images[0]} alt="rocket" />
+            <div>
+              <h1>{element.rocket_name}</h1>
+              <p>{element.description}</p>
+              {checkButton(element)}
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+  return <h3>empty</h3>;
+}
+
+export default Rockets;
