@@ -2,7 +2,6 @@
 import axios from 'axios';
 
 const rocketsUrl = 'https://api.spacexdata.com/v3/rockets';
-const missionsUrl = 'https://api.spacexdata.com/v3/missions';
 
 const getRockets = async () => await axios.get(`${rocketsUrl}`).then((result) => {
   const rockets = [];
@@ -22,23 +21,3 @@ const getRockets = async () => await axios.get(`${rocketsUrl}`).then((result) =>
   }
   return rockets;
 });
-
-const getMissions = async () => axios.get(`${missionsUrl}`).then((result) => {
-  const missions = [];
-  if (result.status === 200) {
-    const { data } = result;
-    data.forEach((missionData) => {
-      const mission = {
-        id: missionData.mission_id,
-        name: missionData.mission_name,
-        description: missionData.description,
-        kind: 'mission',
-        reserved: false,
-      };
-      missions.push(mission);
-    });
-  }
-  return missions;
-});
-
-export default { getRockets, getMissions };

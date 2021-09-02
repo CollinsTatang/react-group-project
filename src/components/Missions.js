@@ -72,6 +72,7 @@ function Missions() {
     );
   }
   return <h3>empty</h3>;
+
 }
 
 export default Missions;
