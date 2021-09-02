@@ -27,7 +27,7 @@ function Myprofile() {
       );
     }
     return (
-      <tr key={element.id}>
+      <tr className="special" key={element.id}>
         <td>&nbsp;</td>
       </tr>
     );
