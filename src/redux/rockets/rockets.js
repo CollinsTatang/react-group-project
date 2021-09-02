@@ -1,62 +1,35 @@
-const BASE_URL = 'https://api.spacexdata.com/v3/rockets';
-const LOAD_ROCKETS = 'rockets/load';
-const BOOK_ROCKET = 'rockets/book';
-const CANCEL_BOOKING = 'rockets/cancel-booking';
+const ADD_RESERVATION_ROCKET = 'ADD_RESERVATION_ROCKET';
+const REMOVE_RESERVATION_ROCKET = 'REMOVE_RESERVATION_ROCKET';
+const RECIVE_RESERVATION_ROCKET = 'RECIVE_RESERVATION_ROCKET';
 
-const loadRockets = (payload) => ({
-  type: LOAD_ROCKETS,
-  payload,
-});
+const initialState = { rockets: [] };
 
-export const bookRocket = (id) => ({
-  type: BOOK_ROCKET,
-  id,
-});
-
-export const cancelBooking = (id) => ({
-  type: CANCEL_BOOKING,
-  id,
-});
-
-export const fetchRockets = async (dispatch) => {
-  const response = await fetch(BASE_URL);
-  const rockets = await response.json();
-
-  dispatch(loadRockets(rockets.map((rocket) => ({
-    id: rocket.rocket_id,
-    name: rocket.rocket_name,
-    type: rocket.rocket_type,
-    description: rocket.description,
-    images: rocket.flickr_images,
-  }))));
-};
-
-const reducer = (state = [], action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOAD_ROCKETS:
-      return action.payload;
-    case BOOK_ROCKET:
-      return state.map((rocket) => {
-        if (rocket.id !== action.id) {
-          return rocket;
-        }
-
-        return {
-          ...rocket,
-          reserved: true,
-        };
-      });
-    case CANCEL_BOOKING:
-      return state.map((rocket) => {
-        if (rocket.id !== action.id) {
-          return rocket;
-        }
-
-        return {
-          ...rocket,
-          reserved: false,
-        };
-      });
+    case ADD_RESERVATION_ROCKET: {
+      const { rockets } = state;
+      let newState;
+      if (rockets) {
+        newState = rockets.map((i) => (i.id === action.payload.id ? { ...i, reserved: true } : i));
+      }
+      return {
+        rockets: newState,
+      };
+    }
+    case REMOVE_RESERVATION_ROCKET: {
+      const { rockets } = state;
+      let newState;
+      if (rockets) {
+        newState = rockets.map((i) => (i.id === action.payload.id ? { ...i, reserved: false } : i));
+      }
+      return {
+        rockets: newState,
+      };
+    }
+    case RECIVE_RESERVATION_ROCKET: {
+      const rockets = action.payload;
+      return { rockets };
+    }
     default:
       return state;
   }
