@@ -7,7 +7,7 @@ import {
   removeReservationRocket,
 } from '../redux/api/api';
 
-describe('Testing actions of adding data', () => {
+describe('Testing actions of receiving data', () => {
   it('reciveReservationMissions working fine', () => {
     const payload = '38993';
     const expected = {
@@ -27,7 +27,7 @@ describe('Testing actions of adding data', () => {
   });
 });
 
-describe('Testing actions of getting data', () => {
+describe('Testing actions of adding reservation', () => {
   it('addReservationMission working fine', () => {
     const payload = '38993';
     const expected = {
@@ -47,7 +47,7 @@ describe('Testing actions of getting data', () => {
   });
 });
 
-describe('Testing actions of getting data', () => {
+describe('Testing actions of removing reservation', () => {
   it('removeReservationMission working fine', () => {
     const payload = '38993';
     const expected = {
