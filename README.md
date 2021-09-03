@@ -47,6 +47,12 @@ To get a local copy up and running follow these simple example steps on the comm
 
 ```
 
+> Run the test
+  ```bash
+
+  $ npm test
+
+```
 
 ## Authors
 
