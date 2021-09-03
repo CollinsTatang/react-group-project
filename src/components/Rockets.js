@@ -53,7 +53,7 @@ function Rockets() {
           <div key={element.id}>
             <img src={element.flickr_images[0]} alt="rocket" />
             <div>
-              <h1>{element.rocket_name}</h1>
+              <h1>{element.name}</h1>
               <div>
                 {checkStatus(element)}
                 <p>{element.description}</p>
