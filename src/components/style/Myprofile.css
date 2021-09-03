@@ -1,0 +1,43 @@
+.tableContainer {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  height: auto;
+  gap: 30px;
+}
+
+.tableContainer > div {
+  width: 50%;
+}
+
+.tableContainer > div > table {
+  width: 100%;
+}
+
+.tableMissions > table > tbody > tr {
+  height: 60px;
+  border: 1px solid #d4d4d4;
+  width: 100%;
+  text-indent: 30px;
+}
+
+.tableMissions > table > thead > tr {
+  height: 60px;
+  width: 100%;
+}
+
+.tableRockets > table > tbody > tr {
+  height: 60px;
+  border: 1px solid #d4d4d4;
+  width: 100%;
+  text-indent: 30px;
+}
+
+.tableRockets > table > thead > tr {
+  height: 60px;
+  width: 100%;
+}
+
+.special {
+  display: none;
+}
