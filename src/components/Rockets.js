@@ -30,6 +30,22 @@ function Rockets() {
     );
   }
 
+  function checkStatus(status) {
+    if (status.reserved === true) {
+      return (
+        <p>Reserved</p>
+      );
+    }
+    if (status.reserved === false) {
+      return (
+        <p className="special" />
+      );
+    }
+    return (
+      <h3>Member?</h3>
+    );
+  }
+
   if (rocketsDisplay) {
     return (
       <div className="rocketsContainer">
@@ -38,7 +54,10 @@ function Rockets() {
             <img src={element.flickr_images[0]} alt="rocket" />
             <div>
               <h1>{element.rocket_name}</h1>
-              <p>{element.description}</p>
+              <div>
+                {checkStatus(element)}
+                <p>{element.description}</p>
+              </div>
               {checkButton(element)}
             </div>
           </div>
