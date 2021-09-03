@@ -12,6 +12,10 @@ In this task, we worked with the real live data from the SpaceX API. Our task wa
 - react
 - redux
 
+![Rockets page](https://github.com/CollinsTatang/react-group-project/blob/dev/src/components/img/rockets.png)
+
+![Missions page](https://github.com/CollinsTatang/react-group-project/blob/dev/src/components/img/missions.png)
+
 ## 🔴 Video <a name = "here"></a>
 **Click [here](https://drive.google.com/file/d/1wFQloYG-TaWYkED1nJB-YelgCesH7NLd/view) in order to see the video of this project.**
 
