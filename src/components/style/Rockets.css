@@ -1,0 +1,28 @@
+.rocketContainer {
+  display: flex;
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 91%;
+}
+
+.imageRocket {
+  width: 25%;
+}
+
+.textRocket {
+  width: 75%;
+}
+
+.specialFloat {
+  display: inline;
+  background-color: rgb(96, 221, 211);
+  border-radius: 10px;
+  padding-right: 3px;
+  padding-left: 3px;
+  color: rgb(255, 255, 255);
+}
+
+.desc {
+  display: inline;
+}
