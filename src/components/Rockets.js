@@ -35,7 +35,7 @@ function Rockets() {
   function checkStatus(status) {
     if (status.reserved === true) {
       return (
-        <p className="specialFloat">Reserved</p>
+        <p className="specialFloat ">Reserved</p>
       );
     }
     if (status.reserved === false) {
@@ -53,7 +53,7 @@ function Rockets() {
       <div className="border-top border-2">
         {rocketsDisplay.map((element) => (
           <div key={element.id} className="rocketContainer">
-            <Image src={element.flickr_images[0]} alt="rocket" className="w-25 ms-2 me-3 imageRocket" />
+            <Image src={element.flickr_images} alt="rocket" className="w-25 ms-2 me-3 imageRocket" />
             <div className="textRocket">
               <h1>{element.name}</h1>
               <div className="specialRocket">

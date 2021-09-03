@@ -13,7 +13,7 @@ const getRockets = async () => await axios.get(`${rocketsUrl}`).then((result) =>
         id: rocketData.rocket_id,
         name: rocketData.rocket_name,
         description: rocketData.description,
-        flickr_images: rocketData.flickr_images,
+        flickr_images: rocketData.flickr_images[0],
         kind: 'rocket',
         reserved: false,
       };

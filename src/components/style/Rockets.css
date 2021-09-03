@@ -15,16 +15,14 @@
 }
 
 .specialFloat {
-  float: left;
+  display: inline;
   background-color: rgb(96, 221, 211);
-  height: auto;
   border-radius: 10px;
-  font-weight: bold;
-  padding-left: 3px;
   padding-right: 3px;
+  padding-left: 3px;
   color: rgb(255, 255, 255);
 }
 
 .desc {
-  text-align: justify;
+  display: inline;
 }

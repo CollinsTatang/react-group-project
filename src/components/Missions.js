@@ -36,12 +36,12 @@ function Missions() {
   function checkButton(status) {
     if (status.reserved === false) {
       return (
-        <Button variant="outline-danger" onClick={() => dispatch(addReservationMission(status))}>Join Mission</Button>
+        <Button variant="outline-secondary" onClick={() => dispatch(addReservationMission(status))}>Join Mission</Button>
       );
     }
     if (status.reserved === true) {
       return (
-        <Button variant="outline-secondary" onClick={() => dispatch(removeReservationMission(status))}>Leave Mission</Button>
+        <Button variant="outline-danger" onClick={() => dispatch(removeReservationMission(status))}>Leave Mission</Button>
       );
     }
     return (
