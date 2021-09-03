@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import './style/Myprofile.css';
 
 function Myprofile() {
   const { missionsReducer } = useSelector((state) => state);
@@ -35,31 +36,36 @@ function Myprofile() {
 
   if (missionsDisplay || rocketsDisplay) {
     return (
-      <div>
-        <table>
-          <thead>
-            <tr>
-              <th>My Missions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {missionsDisplay.map((element) => (
-              checkMissionsRockets(element)
-            ))}
-          </tbody>
-        </table>
-        <table>
-          <thead>
-            <tr>
-              <th>My Rockets</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rocketsDisplay.map((element) => (
-              checkMissionsRockets(element)
-            ))}
-          </tbody>
-        </table>
+      <div className="tableContainer">
+        <div className="tableMissions">
+          <table>
+            <thead>
+              <tr>
+                <th>My Missions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {missionsDisplay.map((element) => (
+                checkMissionsRockets(element)
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="tableRockets">
+          <table>
+            <thead>
+              <tr>
+                <th>My Rockets</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rocketsDisplay.map((element) => (
+                checkMissionsRockets(element)
+              ))}
+            </tbody>
+          </table>
+
+        </div>
       </div>
     );
   }
