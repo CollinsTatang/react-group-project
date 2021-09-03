@@ -7,12 +7,12 @@ const RECIVE_RESERVATION_MISSION = 'RECIVE_RESERVATION_MISSION';
 const ADD_RESERVATION_MISSION = 'ADD_RESERVATION_MISSION';
 const REMOVE_RESERVATION_MISSION = 'REMOVE_RESERVATION_MISSION';
 
-const reciveReservationRockets = (payload) => ({
+export const reciveReservationRockets = (payload) => ({
   type: RECIVE_RESERVATION_ROCKET,
   payload,
 });
 
-const reciveReservationMissions = (payload) => ({
+export const reciveReservationMissions = (payload) => ({
   type: RECIVE_RESERVATION_MISSION,
   payload,
 });
