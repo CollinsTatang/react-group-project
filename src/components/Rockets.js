@@ -48,6 +48,22 @@ function Rockets() {
     );
   }
 
+  function checkStatus(status) {
+    if (status.reserved === true) {
+      return (
+        <p>Reserved</p>
+      );
+    }
+    if (status.reserved === false) {
+      return (
+        <p className="special" />
+      );
+    }
+    return (
+      <h3>Member?</h3>
+    );
+  }
+
   if (rocketsDisplay) {
     return (
       <div className="border-top border-2">
