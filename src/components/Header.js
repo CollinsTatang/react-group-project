@@ -1,20 +1,43 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import logo from '../logo.png';
 
-const Header = () => (
-  <header>
-    <nav>
-      <img src="/" alt="logo" />
-      <h1>Space Travelers Hub</h1>
-      <nav>
-        <ul>
-          <li><Link to="/">Rockets</Link></li>
-          <li><Link to="/missions">Missions</Link></li>
-          <li><Link to="/myprofile">My Profile</Link></li>
-        </ul>
+function Header() {
+  return (
+    <div className="d-flex align-items-center justify-content-between mx-2 py-3">
+      <div className="d-flex align-items-center">
+        <img
+          src={logo}
+          alt="logo"
+          className="logo me-2"
+          style={{
+            display: 'inline-block',
+          }}
+        />
+        <h2>Space Travelers&apos; Hub</h2>
+      </div>
+      <nav className="justify-content-end">
+        <NavLink
+          exact
+          to="/"
+          className="px-3"
+        >
+          Rockets
+        </NavLink>
+        <NavLink
+          to="/missions"
+          className="px-3 border-end border-dark"
+        >
+          Missions
+        </NavLink>
+        <NavLink
+          to="/myprofile"
+          className="px-3"
+        >
+          My Profile
+        </NavLink>
       </nav>
-    </nav>
-  </header>
-);
+    </div>
+  );
+}
 
 export default Header;
