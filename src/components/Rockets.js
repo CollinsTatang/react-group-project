@@ -38,7 +38,7 @@ function Rockets() {
           <div key={element.id}>
             <Image src={element.flickr_images[0]} alt="rocket" className="w-25 ms-2 me-3" />
             <div>
-              <h1>{element.rocket_name}</h1>
+              <h1>{element.name}</h1>
               <p>{element.description}</p>
               {checkButton(element)}
             </div>
