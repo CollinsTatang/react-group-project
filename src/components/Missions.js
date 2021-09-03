@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import {
+  Table, Container, Badge, Button,
+} from 'react-bootstrap';
 import { addReservationMission, removeReservationMission } from '../redux/api/api';
 
 function Missions() {
@@ -17,12 +20,12 @@ function Missions() {
   function checkStatus(status) {
     if (status === false) {
       return (
-        <h3>NOT A MEMBER</h3>
+        <Badge className="bg-secondary">NOT A MEMBER</Badge>
       );
     }
     if (status === true) {
       return (
-        <h3>Active Member</h3>
+        <Badge className="bg-info">Active Member</Badge>
       );
     }
     return (
@@ -33,12 +36,12 @@ function Missions() {
   function checkButton(status) {
     if (status.reserved === false) {
       return (
-        <button type="button" onClick={() => dispatch(addReservationMission(status))}>Join Mission</button>
+        <Button variant="outline-danger" onClick={() => dispatch(addReservationMission(status))}>Join Mission</Button>
       );
     }
     if (status.reserved === true) {
       return (
-        <button type="button" onClick={() => dispatch(removeReservationMission(status))}>Leave Mission</button>
+        <Button variant="outline-secondary" onClick={() => dispatch(removeReservationMission(status))}>Leave Mission</Button>
       );
     }
     return (
@@ -47,8 +50,8 @@ function Missions() {
   }
   if (missionsDisplay) {
     return (
-      <section>
-        <table>
+      <Container fluid className="table-responsive-sm">
+        <Table className="my-3 table-bordered table-striped">
           <thead>
             <tr>
               <th>Mission</th>
@@ -67,8 +70,8 @@ function Missions() {
               </tr>
             ))}
           </tbody>
-        </table>
-      </section>
+        </Table>
+      </Container>
     );
   }
   return <h3>empty</h3>;
