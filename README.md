@@ -70,7 +70,7 @@ To get a local copy up and running follow these simple example steps on the comm
 👤 **Makungong Collins Tatang**
 - GitHub: [@CollinsTatang1](https://github.com/CollinsTatang)
 - Twitter: [@CollinsTatang1](https://twitter.com/CollinsTatang1)
-- LinkedIn: [Makungong Collins](https://www.linkedin.com/in/makungong-collins/)
+- LinkedIn: [Makungang Collins](https://www.linkedin.com/in/makungang-collins/)
 
 ## 🤝 Contributing
 
